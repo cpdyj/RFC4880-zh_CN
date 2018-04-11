@@ -58,11 +58,11 @@ S2K标识符当前支持3种类型，还有一些保留值：
 
 简单 S2K 哈希密码得到会话秘钥。完成此操作的方式取决于会话密钥的大小（取决于所使用的密码）和算法的输出。如果散列大小大于会话密钥大小，则使用散列的高位（最左边）八位字节作为密钥。
 
-如果散列大小小于密钥大小，则会创建多个散列上下文实例 - 足以生成所需的密钥数据。 这些实例预先加(preloaded)了0,1,2，......八位字节的零（也就是说，第一个实例没有预加载，第二个实例预加载了1个八位字节的零，第三个预加载了两个八位字节的零， 等等）。(译注：没看懂，可能理解有误，待修正)
+如果散列大小小于密钥大小，则会创建多个散列上下文实例 - 足以生成所需的密钥数据。 这些实例预先加(preloaded)了0,1,2，......byte的零（也就是说，第一个实例没有预载，第二个实例预加载了1个byte的零，第三个预载了两个byte的零， 等等）。(译注：没看懂，可能理解有误，待修正)
 
 > 原文：If the hash size is less than the key size, multiple instances of the hash context are created -- enough to produce the required key data. These instances are preloaded with 0, 1, 2, ... octets of zeros (that is to say, the first instance has no preloading, the second gets preloaded with 1 octet of zero, the third is preloaded with two octets of zeros, and so forth).
 
-由于数据是散列的，因此每个散列上下文都会独立给出。 由于上下文的初始化方式不同，它们将分别产生不同的散列输出。 一旦密码被散列，来自多个散列的输出数据被连接在一起，首先是最左边的散列，以产生密钥数据，右边的任何多余的八位字节被丢弃。
+由于数据是散列的，因此每个散列上下文都会独立给出。 由于上下文的初始化方式不同，它们将分别产生不同的散列输出。 一旦密码被散列，来自多个散列的输出数据被连接在一起，从最左边产生密钥数据，右边的任何多余的八位字节被丢弃。
 
 #### 3.7.1.2 加盐的 S2K
 在 S2K 标识符中加入了“盐”值 -- 任意的一些数据 -- 与密码字符串一起被散列，用于阻止字典攻击。

@@ -12,7 +12,7 @@
 - [x]   2.3 压缩
 - [x]   2.4 转换到Radix-64
 - [x]   2.5 仅签名应用
-- [x] 3. 数据元素格式 [GOTO](./Data_element_format.md)
+- [x] 3. 数据元素格式 [GOTO](./Data_element_formats.md)
 - [x]   3.1 标量数字
 - [x]   3.2 多精度整数
 - [x]   3.3 秘钥ID
